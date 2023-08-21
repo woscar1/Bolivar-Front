@@ -7,7 +7,7 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class AccountService {
-  baseUrl ='http://localhost:5175/api/user/';
+  baseUrl ='http://localhost:5175/api/Spotify/';
   private currentUserSource = new BehaviorSubject<User | null>(null);
   currentUser$ = this.currentUserSource.asObservable();
 usuario: any;
@@ -15,16 +15,14 @@ usuario: any;
   constructor(private http: HttpClient) { }
 
   login(model: any){
-    return this.http.get<User>(this.baseUrl).pipe(
+    return this.http.get<User>(this.baseUrl+model.username).pipe(
       map((response: User)=> {
         this.usuario = response;
-        const user = response;
-        for(const property in this.usuario){
-          if(model.nombre == this.usuario[property].nombre && model.password == this.usuario[property].password){           
-            localStorage.setItem('user', JSON.stringify(user))
-            this.currentUserSource.next(user);
-          }
-        }       
+        const user = response;       
+        if (user){
+          localStorage.setItem('user', JSON.stringify(user))
+          this.currentUserSource.next(user);
+        }
       })
 
     )
