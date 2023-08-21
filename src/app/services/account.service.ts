@@ -20,8 +20,7 @@ usuario: any;
         this.usuario = response;
         const user = response;
         for(const property in this.usuario){
-          if(model.nombre == this.usuario[property].nombre){
-            console.log("este   "+ this.usuario[property].nombre)
+          if(model.nombre == this.usuario[property].nombre && model.password == this.usuario[property].password){           
             localStorage.setItem('user', JSON.stringify(user))
             this.currentUserSource.next(user);
           }

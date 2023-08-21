@@ -7,16 +7,13 @@ import { NavComponent } from './nav/nav.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { RegistroComponent } from './search/search.component';
-import { ResultadoComponent } from './resultado/resultado.component';
-
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
     HomeComponent,
-    RegistroComponent,
-    ResultadoComponent
+    RegistroComponent
   ],
   imports: [
     BrowserModule,
