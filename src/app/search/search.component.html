@@ -1,0 +1,50 @@
+<form #registroFormulario="ngForm" (ngSubmit)="buscar()">
+    <h2 class="text-center" style="color: #008c44;">Buscar en spotify</h2>
+    <div class="row">
+        <nav class="col-8 m-4" style="padding-left: 300px;">
+           
+                <div class="input-group">
+                    <input class="form-control me-2" 
+                    type="search" 
+                    name="spotify"
+                    [(ngModel)]="model.spotify"
+                    placeholder="Pon tu artista, álbum, o canción"
+                    aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Buscar</button>
+                </div>
+           
+        </nav>
+    </div>
+
+</form>
+<br><br>
+
+<div *ngIf="panel">
+    <h2 class="text-center" style="color: #008c44;">Artistas</h2>
+    <div *ngFor="let artist of artists" class="col-lg-3 col-md-6" >
+        
+        <div class="input-group">
+            <img src={{artist.image}} class="img-fluid">
+            <br>
+            <h2 class="center">{{artist.name}} </h2>
+        </div>
+    </div>
+
+    <hr>
+    <h2 class="text-center" style="color: #008c44;">Álbumes</h2>
+    <div *ngFor="let album of albums" class="col-lg-3 col-md-6" >
+        
+        <div class="input-group">
+            <img src={{album.image}} class="img-fluid">
+            <br>
+            <h2 class="center">{{album.name}} </h2>
+        </div>
+    </div>  
+
+    <hr>
+    <h2 class="text-center" style="color: #008c44;">Canciones</h2>
+    <div *ngFor="let track of tracks" class="col-lg-3 col-md-6" >   
+        {{track.name}}     
+    </div>
+</div>
+

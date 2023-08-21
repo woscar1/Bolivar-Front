@@ -1,0 +1,9 @@
+.header-container__logo {
+    position: absolute;
+    top: -43px;
+    border-radius: 0 0 10px 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: all .5s ease;
+    z-index: 2;
+}
